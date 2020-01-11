@@ -89,51 +89,67 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-var testArray = [2, 3, 4, 5, 6, 7, 9]; //eslint-disable-line
+var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
   //first element is the sum of the numbers in the array, and the second element is a string
   //for(i = 0; i < sumArr.length -1; i = i + 2)//SueTarazi
  
-  console.log(sumArr);
+  //console.log(sumArr);
  
   var iterativeTicker = 0;
   var j = 0;
   var totalsTicker = 0;
-  for(var i = 0; i < sumArr.length; i = i + 2){
-    if (i + 1 < sumArr.length){
-      console.log(i);
-      iterativeTicker = sum(sumArr[i], sumArr[i + 1])
-      totalsTicker = totalsTicker + iterativeTicker[0];
-      console.log(totalsTicker);
+  for(var i = 0; i < sumArr.length; i = sum(i, 2)[0]){
+    var _fresh = sum(i, 1)[0];//GOING THRU AND FINDING PLACES WHERE I USED UNWARENTED MATH OPERATORS, USING VARIBALES LABELED WITH '_FRESH'...
+    if (_fresh < sumArr.length){
+      //console.log(i);
+      var _freshAndClean = sum(i, 1)[0];
+      iterativeTicker = sum(sumArr[i], sumArr[_freshAndClean])[0];
+      //totalsTicker = totalsTicker + iterativeTicker[0];
+      totalsTicker = sum(totalsTicker, iterativeTicker)[0];
+      //console.log(totalsTicker);
       } else {
-        j = i;
-      console.log(j + '= i');//this is the 'leftovers' from the array; the one element that will need to be added to the others which will be added together in a loop, pivoting on the 'sum' function
+      j = i;
+      //console.log(j + '= i');//this is the 'leftovers' from the array; the one element that will need to be added to the others which will be added together in a loop, pivoting on the 'sum' function
       }
 
     }
+
   iterativeTicker = sum(totalsTicker, sumArr[j]);
   totalsTicker = iterativeTicker[0];
-  console.log(totalsTicker);
-  console.log([totalsTicker, arrayZipper(sumArr) + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
-  //return [totalsTicker, arrayZipper(sumArr) + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
+  //console.log(totalsTicker);
+
+    //var zipArrayOmega = sumArr.pop();//MUST BE CAREFUL WHEN THIS HAPPENS, SEEMS TO HAVE CAUSE AN ERROR, WHEN THE BLOCK (NOW) ABOVE WAS BELOW
+    var popReplace = sumArr.length - 1;//THIS BELOW IS THE SAME AS FUNCTION BUILT BELOW THIS ONE, NAMED ARRAY ZIPPER. THOUGHT IT MIGHT WORK HERE INSIDE SUMARRAY FUNCTION
+    var zipArrayOmega = sumArr[popReplace];
+    var zipArrayAlpha = sumArr[0];
+    for (var i = 1; i < sumArr.length - 1; i = sum(i , i)[0]) {
+      zipArrayAlpha = zipArrayAlpha + ',' + sumArr[i];
+    }
+    var zipUp = zipArrayAlpha + ',' + zipArrayOmega;
+    
+  
+  
+  console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
+ return [totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
 }
-function arrayZipper(unwrapArray){
-  var zipArrayOmega = unwrapArray.pop();
-  console.log(zipArrayOmega);
-  var zipArrayAlpha = unwrapArray[0];
-  for(var i = 1; i < unwrapArray.length; i++){
-    zipArrayAlpha = zipArrayAlpha + ', ' + unwrapArray[i];
-  }
-  return (zipArrayAlpha + ', ' + zipArrayOmega);
-}
+// function arrayZipper(unwrapArray){
+//   var zipArrayOmega = unwrapArray.pop();
+//   console.log(zipArrayOmega);
+//   var zipArrayAlpha = unwrapArray[0];
+//   for(var i = 1; i < unwrapArray.length; i++){
+//     zipArrayAlpha = zipArrayAlpha + ', ' + unwrapArray[i];
+//   }
+//   return (zipArrayAlpha + ', ' + zipArrayOmega);
+// }
 
 //sum (results of for, array[j];
 
 // Here is the test for sumArray(); uncomment it to run it
 
-//testSumArray(testArray);
-sumArray(testArray);
+testSumArray(testArray);
+//sumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
