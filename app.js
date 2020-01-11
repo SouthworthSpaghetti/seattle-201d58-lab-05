@@ -223,7 +223,7 @@ testMultiplyArray(testArray);
 Write a function called multiplyAnyArray() that takes an array of numbers of any length as its argument and returns an array whose first element is the product of those numbers, and the second element is a string that EXACTLY follows this example and concatenates a message using the arguments that were passed into the function:
 
 "The numbers 1,2,3,4,5 have a product of 120."
-
+ 
 IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To do multiplication, use your multiply() function that you've already created. You're going to have to be resourceful to figure out how to do this. However, you may continue to use the + operator for string concatenation.
 
 This function should be dynamic, accepting an array of any length.
@@ -234,10 +234,51 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  //first element is the sum of the numbers in the array, and the second element is a string
+  //for(i = 0; i < sumArr.length -1; i = i + 2)//SueTarazi listened as I talked thru this idea; her suggestion was to try 'sumArr.length - 1' maybe
 
+  //console.log(sumArr);
+
+  var iterativeTicker = 1;
+  var j = 0;
+  var totalsTicker = 1;
+  for (var i = 0; i < dynamicArray.length; i = sum(i, 2)[0]) {
+    var _fresh = sum(i, 1)[0];//GOING THRU AND FINDING PLACES WHERE I USED UNWARENTED MATH OPERATORS, USING VARIBALES LABELED WITH '_FRESH'...
+    if (_fresh < dynamicArray.length) {
+      //console.log(i);
+      var _freshAndClean = sum(i, 1)[0];
+      iterativeTicker = multiply(dynamicArray[i], dynamicArray[_freshAndClean])[0];
+      totalsTicker = multiply(totalsTicker, iterativeTicker)[0];//Problem05 adjustment, from/././sum(totalsTicker, iterativeTicker)[0];
+      //console.log(totalsTicker);
+    } else {
+      j = i;
+      //console.log(j + '= i');//this is the 'leftovers' from the array; the one element that will need to be added to the others which will be added together in a loop, pivoting on the 'sum' function
+    }
+
+  }
+
+  iterativeTicker = multiply(totalsTicker, dynamicArray[j]);
+  totalsTicker = iterativeTicker[0];
+  //console.log(totalsTicker);
+
+  //var zipArrayOmega = sumArr.pop();//MUST BE CAREFUL WHEN THIS HAPPENS, SEEMS TO HAVE CAUSE AN ERROR, WHEN THE BLOCK (NOW) ABOVE WAS BELOW
+  var popReplace = dynamicArray.length - 1;
+  var zipArrayOmega = dynamicArray[popReplace];//GETS THE LAST ELEMENT
+  var zipArrayAlpha = dynamicArray[0];//GETS THE FIRST ELEMENT
+  //console.log(dynamicArray.length);//LENGTH CONFIRMED: 5 ELEMENTS. BUT BELOW FORLOOP DOESN'T SEEM TO BE LOOPING THRU
+  for (var i = 1; i < dynamicArray.length - 1; i = sum(i, 1)[0]) {//FIXED LINE OF CODE: FROM i = sum(i, i)[0])... to i = sum(i, 1)[0]) 
+    //console.log(i);
+    zipArrayAlpha = zipArrayAlpha + ',' + dynamicArray[i];
+  }
+  var zipUp = zipArrayAlpha + ',' + zipArrayOmega;
+
+//console.log(zipUp);
+  //console.log([totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.']);
+  return [totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.'];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
+//multiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
