@@ -93,16 +93,29 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
   //first element is the sum of the numbers in the array, and the second element is a string
+  //for(i = 0; i < sumArr.length; i = i + 2)//SueTarazi
+ 
+  console.log(sumArr);
+ 
+  var j = 0;
+  for(var i = 0; i < sumArr.length; i = i + 2){
+    if (i + 1 < sumArr.length){
+      console.log(i);
+      sum(sumArr[i],sumArr[i+1];
+      console.log(sumArr[i], sumArr[i + 1]);
+      } else {
+      j = i;
+      console.log(j + '= i');//this is the 'leftovers' from the array; the one element that will need to be added to the others which will be added together in a loop, pivoting on the 'sum' function
+      }
+    }
   
-  for(i = 0; i < sumArr.index; i = i + 2){
-    sum(sumArr[i],sumArr[i+1];
+  return true
   }
-  //var _1Element = 
-}
+//sum (results of for, array[j];
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+//testSumArray(testArray);
 sumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
