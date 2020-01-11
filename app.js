@@ -119,10 +119,13 @@ function sumArray(sumArr) { //eslint-disable-line
   //return [totalsTicker, arrayZipper(sumArr) + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
 }
 function arrayZipper(unwrapArray){
-  var zip = unwrapArray.pull;
-  for(var i = 0; i < unwrapArray.length; i++){
-    return (unwrapArray[i] + ', ' + zip);
+  var zipArrayOmega = unwrapArray.pop();
+  console.log(zipArrayOmega);
+  var zipArrayAlpha = unwrapArray[0];
+  for(var i = 1; i < unwrapArray.length; i++){
+    zipArrayAlpha = zipArrayAlpha + ', ' + unwrapArray[i];
   }
+  return (zipArrayAlpha + ', ' + zipArrayOmega);
 }
 
 //sum (results of for, array[j];
