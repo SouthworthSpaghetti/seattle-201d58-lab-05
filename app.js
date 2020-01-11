@@ -89,7 +89,7 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+var testArray = [2, 3, 4]; //eslint-disable-line//for Lab04& Lab05
 
 function sumArray(sumArr) { //eslint-disable-line
   //first element is the sum of the numbers in the array, and the second element is a string
@@ -178,9 +178,9 @@ function multiplyArray(multArr) { //eslint-disable-line
     if (_fresh < multArr.length) {
       //console.log(i);
       var _freshAndClean = sum(i, 1)[0];
-      iterativeTicker = sum(multArr[i], multArr[_freshAndClean])[0];
+      iterativeTicker = multiply(multArr[i], multArr[_freshAndClean])[0];//Problem05 adjustment, from/././sum(multArr[i], multArr[_freshAndClean])[0]
       //totalsTicker = totalsTicker + iterativeTicker[0];
-      totalsTicker = sum(totalsTicker, iterativeTicker)[0];
+      totalsTicker = multiply(totalsTicker, iterativeTicker)[0];//Problem05 adjustment, from/././sum(totalsTicker, iterativeTicker)[0];
       //console.log(totalsTicker);
     } else {
       j = i;
@@ -189,12 +189,12 @@ function multiplyArray(multArr) { //eslint-disable-line
 
   }
 
-  iterativeTicker = sum(totalsTicker, multArr[j]);
+  iterativeTicker = multiply(totalsTicker, multArr[j]);//Problem05 adjustment, from/././sum(totalsTicker, multArr[j]);
   totalsTicker = iterativeTicker[0];
   //console.log(totalsTicker);
 
   //var zipArrayOmega = sumArr.pop();//MUST BE CAREFUL WHEN THIS HAPPENS, SEEMS TO HAVE CAUSE AN ERROR, WHEN THE BLOCK (NOW) ABOVE WAS BELOW
-  var popReplace = sumArr.length - 1;//THIS BELOW IS THE SAME AS FUNCTION BUILT BELOW THIS ONE, NAMED ARRAY ZIPPER. THOUGHT IT MIGHT WORK HERE INSIDE SUMARRAY FUNCTION
+  var popReplace = multArr.length - 1;//THIS BELOW IS THE SAME AS FUNCTION BUILT BELOW THIS ONE, NAMED ARRAY ZIPPER. THOUGHT IT MIGHT WORK HERE INSIDE SUMARRAY FUNCTION
   var zipArrayOmega = multArr[popReplace];
   var zipArrayAlpha = multArr[0];
   for (var i = 1; i < multArr.length - 1; i = sum(i, i)[0]) {
@@ -204,12 +204,13 @@ function multiplyArray(multArr) { //eslint-disable-line
 
 
 
-  //console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
-  return [totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
+  console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
+  //return [totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
 // testMultiplyArray(testArray);
+multiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
