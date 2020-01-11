@@ -263,21 +263,22 @@ function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
   //var zipArrayOmega = sumArr.pop();//MUST BE CAREFUL WHEN THIS HAPPENS, SEEMS TO HAVE CAUSE AN ERROR, WHEN THE BLOCK (NOW) ABOVE WAS BELOW
   var popReplace = dynamicArray.length - 1;
-  var zipArrayOmega = dynamicArray[popReplace];
-  var zipArrayAlpha = dynamicArray[0];
-  for (var i = 1; i < dynamicArray.length - 1; i = sum(i, i)[0]) {
+  var zipArrayOmega = dynamicArray[popReplace];//GETS THE LAST ELEMENT
+  var zipArrayAlpha = dynamicArray[0];//GETS THE FIRST ELEMENT
+  //console.log(dynamicArray.length);//LENGTH CONFIRMED: 5 ELEMENTS. BUT BELOW FORLOOP DOESN'T SEEM TO BE LOOPING THRU
+  for (var i = 1; i < dynamicArray.length - 1; i = sum(i, 1)[0]) {//FIXED LINE OF CODE: FROM i = sum(i, i)[0])... to i = sum(i, 1)[0]) 
+    //console.log(i);
     zipArrayAlpha = zipArrayAlpha + ',' + dynamicArray[i];
   }
   var zipUp = zipArrayAlpha + ',' + zipArrayOmega;
 
-
-  console.log([totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.']);
-  //console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);//FROM PROBLEM04
+//console.log(zipUp);
+  //console.log([totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.']);
   return [totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.'];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-//testMultiplyAnyArray(testDynamicArray);
-multiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
+//multiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
