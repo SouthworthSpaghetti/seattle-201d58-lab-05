@@ -89,28 +89,42 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+var testArray = [2, 3, 4, 5, 6, 7, 9]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
   //first element is the sum of the numbers in the array, and the second element is a string
-  //for(i = 0; i < sumArr.length; i = i + 2)//SueTarazi
+  //for(i = 0; i < sumArr.length -1; i = i + 2)//SueTarazi
  
   console.log(sumArr);
  
+  var iterativeTicker = 0;
   var j = 0;
+  var totalsTicker = 0;
   for(var i = 0; i < sumArr.length; i = i + 2){
     if (i + 1 < sumArr.length){
       console.log(i);
-      sum(sumArr[i],sumArr[i+1];
-      console.log(sumArr[i], sumArr[i + 1]);
+      iterativeTicker = sum(sumArr[i], sumArr[i + 1])
+      totalsTicker = totalsTicker + iterativeTicker[0];
+      console.log(totalsTicker);
       } else {
-      j = i;
+        j = i;
       console.log(j + '= i');//this is the 'leftovers' from the array; the one element that will need to be added to the others which will be added together in a loop, pivoting on the 'sum' function
       }
+
     }
-  
-  return true
+  iterativeTicker = sum(totalsTicker, sumArr[j]);
+  totalsTicker = iterativeTicker[0];
+  console.log(totalsTicker);
+  console.log([totalsTicker, arrayZipper(sumArr) + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
+  //return [totalsTicker, arrayZipper(sumArr) + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
+}
+function arrayZipper(unwrapArray){
+  var zip = unwrapArray.pull;
+  for(var i = 0; i < unwrapArray.length; i++){
+    return (unwrapArray[i] + ', ' + zip);
   }
+}
+
 //sum (results of for, array[j];
 
 // Here is the test for sumArray(); uncomment it to run it
