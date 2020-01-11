@@ -89,7 +89,7 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+var testArray = [2, 3, 4]; //eslint-disable-line//for Lab04& Lab05
 
 function sumArray(sumArr) { //eslint-disable-line
   //first element is the sum of the numbers in the array, and the second element is a string
@@ -131,7 +131,7 @@ function sumArray(sumArr) { //eslint-disable-line
     
   
   
-  console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
+  //console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
  return [totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
 }
 // function arrayZipper(unwrapArray){
@@ -141,7 +141,7 @@ function sumArray(sumArr) { //eslint-disable-line
 //   for(var i = 1; i < unwrapArray.length; i++){
 //     zipArrayAlpha = zipArrayAlpha + ', ' + unwrapArray[i];
 //   }
-//   return (zipArrayAlpha + ', ' + zipArrayOmega);
+//   return (zipArrayAlpha + ', ' + zipArrayOmega);//should have been ...+ ',' +... 
 // }
 
 //sum (results of for, array[j];
@@ -165,11 +165,52 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+  //first element is the sum of the numbers in the array, and the second element is a string
+  //for(i = 0; i < sumArr.length -1; i = i + 2)//SueTarazi listened as I talked thru this idea; her suggestion was to try 'sumArr.length - 1' maybe
 
+  //console.log(sumArr);
+
+  var iterativeTicker = 1;//Problem05 adjustment, from/././iterativeTicker = 0;
+  var j = 0;
+  var totalsTicker = 1;//Problem05 adjustment, from/././totalsTicker = 0;
+  for (var i = 0; i < multArr.length; i = sum(i, 2)[0]) {
+    var _fresh = sum(i, 1)[0];//GOING THRU AND FINDING PLACES WHERE I USED UNWARENTED MATH OPERATORS, USING VARIBALES LABELED WITH '_FRESH'...
+    if (_fresh < multArr.length) {
+      //console.log(i);
+      var _freshAndClean = sum(i, 1)[0];
+      iterativeTicker = multiply(multArr[i], multArr[_freshAndClean])[0];//Problem05 adjustment, from/././sum(multArr[i], multArr[_freshAndClean])[0]
+      //totalsTicker = totalsTicker + iterativeTicker[0];
+      totalsTicker = multiply(totalsTicker, iterativeTicker)[0];//Problem05 adjustment, from/././sum(totalsTicker, iterativeTicker)[0];
+      //console.log(totalsTicker);
+    } else {
+      j = i;
+      //console.log(j + '= i');//this is the 'leftovers' from the array; the one element that will need to be added to the others which will be added together in a loop, pivoting on the 'sum' function
+    }
+
+  }
+
+  iterativeTicker = multiply(totalsTicker, multArr[j]);//Problem05 adjustment, from/././sum(totalsTicker, multArr[j]);
+  totalsTicker = iterativeTicker[0];
+  //console.log(totalsTicker);
+
+  //var zipArrayOmega = sumArr.pop();//MUST BE CAREFUL WHEN THIS HAPPENS, SEEMS TO HAVE CAUSE AN ERROR, WHEN THE BLOCK (NOW) ABOVE WAS BELOW
+  var popReplace = multArr.length - 1;//THIS BELOW IS THE SAME AS FUNCTION BUILT BELOW THIS ONE, NAMED ARRAY ZIPPER. THOUGHT IT MIGHT WORK HERE INSIDE SUMARRAY FUNCTION
+  var zipArrayOmega = multArr[popReplace];
+  var zipArrayAlpha = multArr[0];
+  for (var i = 1; i < multArr.length - 1; i = sum(i, i)[0]) {
+    zipArrayAlpha = zipArrayAlpha + ',' + multArr[i];
+  }
+  var zipUp = zipArrayAlpha + ',' + zipArrayOmega;
+
+
+  console.log([totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.']);
+  //console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);//FROM PROBLEM04
+  return [totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.'];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
+//multiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
