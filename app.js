@@ -166,13 +166,13 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
   //first element is the sum of the numbers in the array, and the second element is a string
-  //for(i = 0; i < sumArr.length -1; i = i + 2)//SueTarazi
+  //for(i = 0; i < sumArr.length -1; i = i + 2)//SueTarazi listened as I talked thru this idea; her suggestion was to try 'sumArr.length - 1' maybe
 
   //console.log(sumArr);
 
-  var iterativeTicker = 0;
+  var iterativeTicker = 1;//Problem05 adjustment, from/././iterativeTicker = 0;
   var j = 0;
-  var totalsTicker = 0;
+  var totalsTicker = 1;//Problem05 adjustment, from/././totalsTicker = 0;
   for (var i = 0; i < multArr.length; i = sum(i, 2)[0]) {
     var _fresh = sum(i, 1)[0];//GOING THRU AND FINDING PLACES WHERE I USED UNWARENTED MATH OPERATORS, USING VARIBALES LABELED WITH '_FRESH'...
     if (_fresh < multArr.length) {
@@ -203,14 +203,14 @@ function multiplyArray(multArr) { //eslint-disable-line
   var zipUp = zipArrayAlpha + ',' + zipArrayOmega;
 
 
-
-  console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);
-  //return [totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.'];
+  console.log([totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.']);
+  //console.log([totalsTicker, zipUp + ' was passed in as an array of numbers, and ' + totalsTicker + ' is their sum.']);//FROM PROBLEM04
+  return [totalsTicker, 'The numbers ' + zipUp + ' have a product of ' + totalsTicker + '.'];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
-multiplyArray(testArray);
+testMultiplyArray(testArray);
+//multiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
